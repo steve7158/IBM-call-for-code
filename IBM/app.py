@@ -1,44 +1,28 @@
-from flask import Flask, render_template
-
-from flask_googlemaps import GoogleMaps
-
-from flask_googlemaps import Map
-
+from flask import Flask, render_template, url_for, request
+import folium
 
 app = Flask(__name__)
 
+@app.route("/")
+def home():
+    return render_template('home.html')
 
-GoogleMaps(app, key="AIzaSyDSUg7p-ecCWTAxpCYpD-Red91dcFHyx5I")
+@app.route("/MapOut")
+def index():
+    b = [[28.6129,77.2295],[28.6271,77.2166],[28.5245,77.1855]]
+    name = ['India Gate','Jantar Mantar','Qutub Minar']
+    map = folium.Map(location = b[0], zoom_start = 4)
+    feature_group = folium.FeatureGroup("Locations")
 
+    for i in range(len(b)):
+        feature_group.add_child(folium.Marker(location=b[i],popup =name[i]))
 
+    map.add_child(feature_group)
 
+    map.save('templates/map.html')
 
-@app.route('/', methods=["GET"])
-def my_map():
-    mymap = Map(
-
-                identifier="view-side",
-
-                varname="mymap",
-
-                style="height:720px;width:1100px;margin:0;", # hardcoded!
-
-                lat=37.4419, # hardcoded!
-
-                lng=-122.1419, # hardcoded!
-
-                zoom=15,
-
-                markers=[(37.4419, -122.1419)] # hardcoded!
-
-            )
-
-    return render_template('map.html', mymap=mymap)
-
-
-
+    return render_template('index.html')
 
 
 if __name__ == "__main__":
-
-    app.run(debug=True, use_reloader=True)
+    app.run(debug=True)

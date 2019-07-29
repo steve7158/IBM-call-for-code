@@ -1,74 +1,125 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Geolocation</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="map"></div>
-    <script>
-      // Note: This example requires that you consent to location sharing when
-      // prompted by your browser. If you see the error "The Geolocation service
-      // failed.", it means you probably did not give permission for the browser to
-      // locate you.
-      var map, infoWindow;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 6
-        });
-        infoWindow = new google.maps.InfoWindow;
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_8b281834f5774a16bd00d873e1cd8633 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_8b281834f5774a16bd00d873e1cd8633" ></div>
+        
+</body>
+<script>    
+    
+            var map_8b281834f5774a16bd00d873e1cd8633 = L.map(
+                "map_8b281834f5774a16bd00d873e1cd8633",
+                {
+                    center: [28.6129, 77.2295],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 4,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
 
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
+            
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            infoWindow.open(map);
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-      }
+        
+    
+            var tile_layer_a19abfcefbc849389ad281bab2db56d8 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_8b281834f5774a16bd00d873e1cd8633);
+        
+    
+            var feature_group_5d8c61955e4d49f8a84553681e0ce83e = L.featureGroup(
+                {}
+            ).addTo(map_8b281834f5774a16bd00d873e1cd8633);
+        
+    
+            var marker_46257f55c57a46588a106986c7599ca4 = L.marker(
+                [28.6129, 77.2295],
+                {}
+            ).addTo(feature_group_5d8c61955e4d49f8a84553681e0ce83e);
+        
+    
+        var popup_f75f4eac9dd84657bd969c000090f559 = L.popup({"maxWidth": "100%"});
 
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSUg7p-ecCWTAxpCYpD-Red91dcFHyx5I&callback=initMap">
-    </script>
-    <body>
-        <div class="container">
-            <h1>Flask Google Maps Example</h1><hr>
-            {{ mymap.html }}
-        </div>
-    </body>
-</html>
+        
+            var html_880dfd3a65dc441da0a74b2d5e48de1b = $(`<div id="html_880dfd3a65dc441da0a74b2d5e48de1b" style="width: 100.0%; height: 100.0%;">India Gate</div>`)[0];
+            popup_f75f4eac9dd84657bd969c000090f559.setContent(html_880dfd3a65dc441da0a74b2d5e48de1b);
+        
+
+        marker_46257f55c57a46588a106986c7599ca4.bindPopup(popup_f75f4eac9dd84657bd969c000090f559)
+        ;
+
+        
+    
+    
+            var marker_7ac90cad227a4f55b7401605c78f303e = L.marker(
+                [28.6271, 77.2166],
+                {}
+            ).addTo(feature_group_5d8c61955e4d49f8a84553681e0ce83e);
+        
+    
+        var popup_e39ecd7fecf148cbb1a9d08d19da3da5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d9953c153e444f98bb4f5ea926aebda6 = $(`<div id="html_d9953c153e444f98bb4f5ea926aebda6" style="width: 100.0%; height: 100.0%;">Jantar Mantar</div>`)[0];
+            popup_e39ecd7fecf148cbb1a9d08d19da3da5.setContent(html_d9953c153e444f98bb4f5ea926aebda6);
+        
+
+        marker_7ac90cad227a4f55b7401605c78f303e.bindPopup(popup_e39ecd7fecf148cbb1a9d08d19da3da5)
+        ;
+
+        
+    
+    
+            var marker_8f7e4fd3af4c4156b404ec9840026679 = L.marker(
+                [28.5245, 77.1855],
+                {}
+            ).addTo(feature_group_5d8c61955e4d49f8a84553681e0ce83e);
+        
+    
+        var popup_e7b8dff8897541749cb8a94ba6935893 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7ecf7c267ea54ae793c31cafc4c6fc78 = $(`<div id="html_7ecf7c267ea54ae793c31cafc4c6fc78" style="width: 100.0%; height: 100.0%;">Qutub Minar</div>`)[0];
+            popup_e7b8dff8897541749cb8a94ba6935893.setContent(html_7ecf7c267ea54ae793c31cafc4c6fc78);
+        
+
+        marker_8f7e4fd3af4c4156b404ec9840026679.bindPopup(popup_e7b8dff8897541749cb8a94ba6935893)
+        ;
+
+        
+    
+</script>

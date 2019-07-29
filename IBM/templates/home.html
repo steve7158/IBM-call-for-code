@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Flying Robin</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href={{ url_for('static',filename ='css/main.css')}}>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    {% block head %}{% endblock %}
+	</head>
+	<body>
+    {% block body %}{% endblock %}
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><a href="{{ url_for('index') }}">MAP</a></div>
+        <a href="#menu"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> Menu</a>
+
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="/">Home</a></li>
+					<li><a href="/MapOut">Maps</a></li>
+				</ul>
+			</nav>
+
+		<!-- Banner -->
+			<section class="banner full">
+				<article>
+					<img src="{{ url_for('static', filename='photos/slide01.jpg') }}">
+					<div class="inner">
+						<header>
+							<p>To the aid of victims</p>
+							<h2>FLYING ROBIN</h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="{{ url_for('static', filename='photos/slide02.jpg') }}" alt="" />
+					<div class="inner">
+						<header>
+							<p>A Search Vehicle for One in Need</p>
+							<h2>DYNAMIC MARKING</h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="{{ url_for('static', filename='photos/slide03.jpg') }}"  alt="" />
+					<div class="inner">
+						<header>
+							<p>Threat Classifier Models using A.I</p>
+							<h2>INTELLIGENT HELP PROTOCLOS</h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="{{ url_for('static', filename='photos/slide04.jpg') }}"  alt="" />
+					<div class="inner">
+						<header>
+							<p>Generates Realtime Coordinates of the Detected Victims </p>
+							<h2>Fast & Accurate</h2>
+						</header>
+					</div>
+				</article>
+				<article>
+					<img src="{{ url_for('static', filename='photos/slide05.jpg') }}"  alt="" />
+					<div class="inner">
+						<header>
+							<p>by Steve Jose & Kartikey Kaushiq for</p>
+							<h2>IBM CALL FOR CODE</h2>
+						</header>
+					</div>
+				</article>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper style2">
+				<div class="inner">
+					<div class="grid-style">
+
+						<div>
+							<div class="box">
+								<div class="image fit">
+									<img src="{{ url_for('static', filename='photos/pic02.jpg') }}" alt="" />
+								</div>
+								<div class="content">
+									<header class="align-center">
+										<p>About our Project</p>
+										<h2>Flying Robin</h2>
+									</header>
+									<p>Influenced by thr IBM's Initiative to help people under the Curse of Natural disaster. Flying Robin is a drone that does the Realtime mapping for the victims of disaster event and return the coordinate of the analysed area with the type of situation.<br>The data can be easily posted on a localised map for Admin/ Guard.<br>This Data can Be used by the Rescue team to think of the most efficient way of providing relief to the victims. </p>
+
+								</div>
+							</div>
+						</div>
+
+						<div>
+							<div class="box">
+								<div class="image fit">
+									<img src="{{ url_for('static', filename='photos/Dq6o3uI.jpg') }}" alt="" />
+								</div>
+								<div class="content">
+									<header class="align-center">
+										<p>Main Project</p>
+										<h2>Admin Map</h2>
+									</header>
+
+									<footer class="align-center">
+										<a href="/MapOut" class="button alt">Learn More</a>
+									</footer>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						<p>For The Purpose of</p>
+						<h2>IBM CALL FOR CODE 2019</h2>
+					</header>
+				</div>
+			</section>
+
+		<!-- Three -->
+			<section id="three" class="wrapper style2">
+				<div class="inner">
+					<header class="align-center">
+						<p class="special">Creators:</p>
+						<h3>--- Steve Jose ---<br>--- Kartikey Kaushiq ---</h3>
+					</header>
+
+					</div>
+			</section>
+
+		<!-- Scripts -->
+			<script src="{{ url_for('static',filename ='js/jquery.min.js')}}"></script>
+			<script src="{{ url_for('static',filename ='js/jquery.scrollex.min.js')}}"></script>
+			<script src="{{ url_for('static',filename ='js/skel.min.js')}}"></script>
+			<script src="{{ url_for('static',filename ='js/util.js')}}"></script>
+			<script src="{{ url_for('static',filename ='js/main.js')}}"></script>
+
+	</body>
+</html>
